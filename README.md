@@ -93,22 +93,7 @@ Step 3 requires to setup an HTTP Load Balancer with a managed instance group of 
      --instance-group-zone us-east1-b \
      --global
 
-#### 7- Creating a URL map and target HTTP proxy to route requests to your URL map:
 
-     gcloud compute url-maps create web-map \
-     --default-service nginx-backend
-
-     gcloud compute target-http-proxies create http-lb-proxy \
-     --url-map web-map
-
-#### 8- Creating a forwarding rule:
-
-     gcloud compute forwarding-rules create http-content-rule \
-     --global \
-     --target-http-proxy http-lb-proxy \
-     --ports 80
-
-     gcloud compute forwarding-rules list
 
 
 #### After this gcloud compute forwarding-rules list and then open the ip addresses listed in the output of the above command 
